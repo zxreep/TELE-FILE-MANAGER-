@@ -22,7 +22,10 @@ ptb_app.add_handler(CommandHandler("batch", cmd_batch))
 ptb_app.add_handler(CommandHandler("addchannel", cmd_add_channel))
 ptb_app.add_handler(CommandHandler("stat", stats_handler))
 ptb_app.add_handler(MessageHandler(filters.Document.ALL | filters.VIDEO | filters.AUDIO | filters.PHOTO, file_receiver))
-
+ptb_app.add_handler(CommandHandler("start", start_handler))
+ptb_app.add_handler(CommandHandler("batch", cmd_batch))
+ptb_app.add_handler(CommandHandler("publish", cmd_publish))  # NEW
+ptb_app.add_handler(CommandHandler("admin", cmd_admin))      # NEW
 @app.post("/webhook")
 async def telegram_webhook(request: Request):
     """
